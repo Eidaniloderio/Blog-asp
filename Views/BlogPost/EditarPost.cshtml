@@ -1,0 +1,81 @@
+﻿@model BlogPostModel
+@{
+    ViewData["Title"] = "Criar Post";
+}
+<div class="container-fluid" style="width: 100%">
+    <div class="container-fluid">
+        <h1 class="text-center">Novo Post</h1>
+    </div>
+    <form method="post" asp-controller="BlogPost" asp-action="EditarPost">
+        <div class="container-fluid m-4">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Data</label>
+                                <input type="date" asp-for="Data" class="form-control" id="exampleFormControlInput1" placeholder="Data">
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput2" class="form-label">Nome do Autor</label>
+                                <input type="text" asp-for="Autor" class="form-control" id="exampleFormControlInput2" placeholder="Nome do Autor">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput3" class="form-label">Título do Post</label>
+                                <input type="text" asp-for="Titulo" class="form-control" id="exampleFormControlInput3" placeholder="Título">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput4" class="form-label">Descrição</label>
+                                <input type="text" asp-for="Descricao" class="form-control" id="exampleFormControlInput4" placeholder="Uma breve descrição">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="md-3">
+                                <label for="form-select" class="form-label">Status</label>
+                                <select asp-for="Status" id="form-select" class="form-select" aria-label="Default select example">
+                                    <option selected>Status</option>
+                                    <option value="Publico">Publico</option>
+                                    <option value="Privado">Privado</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="my-3">
+                                <label for="tiny">Conteúdo principal</label>
+                                <textarea asp-for="Conteudo" class="form-control" id="tiny" rows="20"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 offset-md-2">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3 d-flex align-content-between">
+                            <button type="submit" class="btn btn-success">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

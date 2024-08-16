@@ -1,0 +1,24 @@
+﻿@model BlogPostModel
+
+
+
+<div class="container-fluid" style="width: 80%">
+    <div class="container-fluid">
+        <h1>@Model.Titulo</h1>
+        <hr/>
+        <h3>@Model.Autor</h3>
+        <h4>@Model.Data.ToShortDateString()</h4>
+        <p>@Model.Descricao</p>
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <p>
+                    @Html.Raw(Model.Conteudo)
+                </p>
+            </div>
+        </div>
+        <a class="btn btn-primary" asp-controller="BlogPost" asp-action="EditarPost" asp-route-id="@Model.Id">Editar</a>
+        <a class="btn btn-danger" asp-controller="BlogPost" asp-action="DeletarPost" asp-route-id="@Model.Id" onclick="window.confirm('Tem certeza que deseja exluir?')">Delete</a>
+
+    </div>
+</div>
+

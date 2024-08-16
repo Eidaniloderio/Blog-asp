@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BlogPostModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="container-fluid" style="width: 80%">
+    <div class="container-fluid">
+        <img src="~/midia/Placeholder-banner.png" alt="Uma imagem muito bacana" class="img-fluid rounded"/>
+    </div>
+    
+    <div class="container-fluid d-flex justify-content-end my-5">
+        <a type="button" class="btn btn-primary" asp-area="" asp-controller="BlogPost" asp-action="CriarPost">
+            Novo Post
+        </a>
+    </div>
+
+    @{
+        if (Model != null && Model.Count() > 0)
+        {
+            var last = Model.Last();
+
+            <div class="container-fluid">
+                <h1>@last.Titulo</h1>
+                <h3>@last.Autor</h3>
+                <h4>@last.Data.ToShortDateString()</h4>
+                <p>@last.Descricao</p>
+                <div class="container-fluid">
+                    <div class="col-md-12">
+                        <p>
+                            @Html.Raw(last.Conteudo)
+                        </p>
+                    </div>
+                </div>
+                <a class="btn btn-primary" asp-controller="BlogPost" asp-action="ExibirPost" asp-route-id="@last.Id">Ver completo</a>
+            </div>
+        }
+    }
+
+    <hr/>
+
+    <div class="container-fluid mt-5">
+        <h2 class="">Ultimos Posts</h2>
+        <hr />
+
+        <div class="container-fluid">
+            <div class="row">
+                @{
+                    if(Model != null && Model.Count() > 0)
+                    {
+                        var last = Model.Last();
+
+                        foreach (var post in Model.Where(Model => Model.Id != last.Id).Reverse())
+                        {
+                            <div class="col-lg-3 m-4">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="..." class="card-img-top img-fluid rounded" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@post.Data.ToShortDateString()</h5>
+                                        <p class="card-text">Feito por @post.Autor</p>
+                                        <p class="card-text">@post.Descricao</p>
+                                        <a class="btn btn-primary" asp-controller="BlogPost" asp-action="ExibirPost" asp-route-id="@post.Id">Ver completo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    }
+                }
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+

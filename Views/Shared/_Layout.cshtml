@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Blog_asp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Blog_asp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md" aria-label="Fourth navbar example">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="~/midia/logo-bacana-preta.png" alt="Uma logo foda" class="img-fluid" style="width:10rem;" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample04">
+                    <span class="navbar-text ms-auto fs-1 text">
+                        Meu site
+                    </span>
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a type="button" class="btn btn-success" asp-area="" asp-controller="BlogPost" asp-action="CriarPost">                                   
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+                                    <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15zM11 2h.5a.5.5 0 0 1 .5.5V15h-1zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1" />
+                                </svg>
+                                Login
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container-fluid">
+            <div class="m-5 d-flex justify-content-between">
+                <a class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1" asp-controller="Home" asp-action="index">
+                    <img src="~/midia/logo-bacana-preta.png" alt="Uma logo foda" class="img-fluid" style="width:10rem;" />
+
+                </a>
+                <span class="text-muted text-center">© feito por Danilo Derio</span>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
